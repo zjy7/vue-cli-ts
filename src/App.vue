@@ -1,13 +1,47 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <button
+        style="margin:0 20px;"
+        v-for="(item,index) in btnArr"
+        :key='index.value'
+        @click='clickBtn(item.value)'
+        >
+        {{item.label}}
+      </button>
     </div>
     <router-view/>
   </div>
 </template>
+<script lang="ts">
+import { Component, Prop, Vue, Watch, Emit} from 'vue-property-decorator';
 
+enum MenuIndex {
+  home=0,
+  about,
+  talk
+}
+
+@Component
+export default class App extends Vue {
+  btnArr: object[] = [
+    {value:MenuIndex.home, label:'Home'},
+    {value:MenuIndex.about, label:'About'},
+    {value:MenuIndex.talk, label:'Talk'},
+  ]
+
+  clickBtn(value:MenuIndex):void{
+    if(value===MenuIndex.home){
+      this.$router.push('/')
+    }else   if(value===MenuIndex.about){
+      this.$router.push('/about')
+    }else   if(value===MenuIndex.talk){
+      this.$router.push('/talk')
+    }
+  }
+
+}
+</script>
 <style lang="stylus">
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif

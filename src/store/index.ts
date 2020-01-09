@@ -1,15 +1,16 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
-
+import Vuex, {StoreOptions} from 'vuex'
+import {RootState} from './types'
+import {profile} from './modules/profile/index'
 Vue.use(Vuex)
 
-export default new Vuex.Store({
-  state: {
+const store: StoreOptions<RootState> = {
+  state:{
+    version:'1.2.3'
   },
-  mutations: {
-  },
-  actions: {
-  },
-  modules: {
+  modules:{
+    profile
   }
-})
+}
+
+export default new Vuex.Store<RootState>(store)
