@@ -19,7 +19,8 @@ import { Component, Prop, Vue, Watch, Emit} from 'vue-property-decorator';
 enum MenuIndex {
   home=0,
   about,
-  talk
+  talk,
+  ifr
 }
 
 @Component
@@ -28,6 +29,7 @@ export default class App extends Vue {
     {value:MenuIndex.home, label:'Home'},
     {value:MenuIndex.about, label:'About'},
     {value:MenuIndex.talk, label:'Talk'},
+    {value:MenuIndex.ifr, label:'open iframe'}
   ]
 
   clickBtn(value:MenuIndex):void{
@@ -37,6 +39,8 @@ export default class App extends Vue {
       this.$router.push('/about')
     }else   if(value===MenuIndex.talk){
       this.$router.push('/talk')
+    }else if(value===MenuIndex.ifr){
+      this.$router.push('/popWindow')
     }
   }
 

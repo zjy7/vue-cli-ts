@@ -23,6 +23,11 @@ const routes = [
     name: 'talk',
     component: () => import(/* webpackChunkName: "about" */ '../views/Talk/index.vue')
   },
+  {
+    path: '/popWindow',
+    name: 'popWindow',
+    component: () => import(/* webpackChunkName: "about" */ '../views/PopWindow/index.vue')
+  },
 ]
 
 const router = new VueRouter({
