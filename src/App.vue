@@ -20,7 +20,8 @@ enum MenuIndex {
   home=0,
   about,
   talk,
-  ifr
+  ifr,
+  cesium
 }
 
 @Component
@@ -29,7 +30,8 @@ export default class App extends Vue {
     {value:MenuIndex.home, label:'Home'},
     {value:MenuIndex.about, label:'About'},
     {value:MenuIndex.talk, label:'Talk'},
-    {value:MenuIndex.ifr, label:'open iframe'}
+    {value:MenuIndex.ifr, label:'open iframe'},
+    {value:MenuIndex.cesium, label:'open Cesium Dome'}
   ]
 
   clickBtn(value:MenuIndex):void{
@@ -41,6 +43,8 @@ export default class App extends Vue {
       this.$router.push('/talk')
     }else if(value===MenuIndex.ifr){
       this.$router.push('/popWindow')
+    }else if(value===MenuIndex.cesium){
+      this.$router.push('/cesiumDemo')
     }
   }
 
@@ -53,5 +57,7 @@ export default class App extends Vue {
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 60px
+  margin-top 15px
+  #nav
+    margin-bottom 10px
 </style>

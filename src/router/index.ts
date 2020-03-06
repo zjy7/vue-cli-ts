@@ -28,6 +28,11 @@ const routes = [
     name: 'popWindow',
     component: () => import(/* webpackChunkName: "about" */ '../views/PopWindow/index.vue')
   },
+  {
+    path: '/cesiumDemo',
+    name: 'cesiumDemo',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CesiumDemo/index.vue')
+  },
 ]
 
 const router = new VueRouter({
