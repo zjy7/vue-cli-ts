@@ -20,6 +20,8 @@ import 'mycesium/Widgets/widgets.css'
     methods: {
       cesiumInit(){
         // console.log(Cesium)
+        // Cesium.Ion.defaultAccessToken = 'your_access_token'
+        Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIzMWYwZmE4Mi03NzliLTRhODItYTcxMy0wODBkM2NlMGE3ZWEiLCJpZCI6MjM1MjcsInNjb3BlcyI6WyJhc3IiLCJnYyJdLCJpYXQiOjE1ODM0ODQxNzl9.8eX6ovIoXzUJxjoN59DxvG5LmvNdYSAk5U8iJi7yEWM';
         let viewer = new Cesium.Viewer('cesiumContainer');
       }
    }
