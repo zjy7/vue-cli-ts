@@ -10,6 +10,8 @@ import 'mycesium/Widgets/widgets.css'
 // console.log(cesium)
 // noinspection ES6UnusedImports
 // import widget from 'cesium/Widgets/widgets.css'
+// "export 'default' (imported as 'Cesium') was not found in 'cesium/Cesium'
+
   export default {
     name: "cesiumContainer",
     mounted () {
