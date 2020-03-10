@@ -33,6 +33,11 @@ const routes = [
     name: 'cesiumDemo',
     component: () => import(/* webpackChunkName: "about" */ '../views/CesiumDemo/index.vue')
   },
+  {
+    path: '/cesiumDemoOne',
+    name: 'cesiumDemoOne',
+    component: () => import(/* webpackChunkName: "about" */ '../views/CesiumDemoOne/index.vue')
+  },
 ]
 
 const router = new VueRouter({

@@ -9,7 +9,25 @@ console.log('running in vue.config.js')
 module.exports = {
   publicPath: './',
   devServer: {
-    port: 7000
+    port: 7000,
+    proxy: {
+      '/requestBuilding': {
+        target:'http://127.0.0.1:80',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/requestBuilding': '/jxgl.json'
+        }
+      },
+      '/one':{
+        target:'https://d3h9zulrmcj1j6.cloudfront.net/Orlando_Cesium/',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/one': '/root.json'
+        }
+      }
+    }
   },
   configureWebpack: {
     output: {

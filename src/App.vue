@@ -9,6 +9,7 @@
         >
         {{item.label}}
       </button>
+      <div id='creditContainer' v-show='false'></div>
     </div>
     <router-view/>
   </div>
@@ -21,7 +22,8 @@ enum MenuIndex {
   about,
   talk,
   ifr,
-  cesium
+  cesium,
+  cesiumOne
 }
 
 @Component
@@ -31,7 +33,8 @@ export default class App extends Vue {
     {value:MenuIndex.about, label:'About'},
     {value:MenuIndex.talk, label:'Talk'},
     {value:MenuIndex.ifr, label:'open iframe'},
-    {value:MenuIndex.cesium, label:'open Cesium Dome'}
+    {value:MenuIndex.cesium, label:'open Cesium Dome'},
+    {value:MenuIndex.cesiumOne, label:'open Cesium One'}
   ]
 
   clickBtn(value:MenuIndex):void{
@@ -45,6 +48,8 @@ export default class App extends Vue {
       this.$router.push('/popWindow')
     }else if(value===MenuIndex.cesium){
       this.$router.push('/cesiumDemo')
+    }else if(value===MenuIndex.cesiumOne){
+      this.$router.push('./cesiumDemoOne')
     }
   }
 
