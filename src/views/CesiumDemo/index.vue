@@ -73,7 +73,7 @@ import $ from 'jquery'
           // maximumScreenSpaceError: isMobile.any() ? 8 : 1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
           // maximumNumberOfLoadedTiles: isMobile.any() ? 10 : 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache.
           // maximumScreenSpaceError:  1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
-          // maximumNumberOfLoadedTiles: 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache.
+          // maximumNumberOfLoadedTiles: 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache. 
         }));
         tj.allTilesLoaded.addEventListener(function() {
             console.log('All tiles are loaded');
