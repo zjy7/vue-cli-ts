@@ -19,12 +19,20 @@ module.exports = {
           '^/requestBuilding': '/jxgl.json'
         }
       },
-      '/one':{
+      '/one.json':{
         target:'https://d3h9zulrmcj1j6.cloudfront.net/Orlando_Cesium/',
         ws: true,
         changeOrigin: true,
         pathRewrite: {
-          '^/one': '/root.json'
+          '^/one.json': '/root.json'
+        }
+      },
+      '/eee':{
+        target:'http://127.0.0.1:80',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/eee': '/eee'
         }
       }
     }
