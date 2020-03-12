@@ -16,6 +16,7 @@ import $ from 'jquery'
     data(){
       return {
         wapian:'openstreet',
+        isShowBuildings:true,
       }
     },
     mounted () {
@@ -38,9 +39,8 @@ import $ from 'jquery'
           // credit:'',
           // creditContainer:'creditContainer',
         });
-        // console.log(viewer)
+        viewer.scene.globe.depthTestAgainstTerrain = true;
 
-        
         // var tileset = viewer.scene.primitives.add(
         //     new Cesium.Cesium3DTileset({
         //         url: Cesium.IonResource.fromAssetId(80007),
@@ -67,67 +67,84 @@ import $ from 'jquery'
           });
           viewer.imageryLayers.add(gaode);
         }
+        if(this.isShowBuildings){
+          var tj = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
+            // name: "qxmodel",
+            url: 'http://localhost:7000/eee/tileset.json',
+            // maximumScreenSpaceError: isMobile.any() ? 8 : 1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
+            // maximumNumberOfLoadedTiles: isMobile.any() ? 10 : 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache.
+            // maximumScreenSpaceError:  1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
+            // maximumNumberOfLoadedTiles: 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache. 
+          }));
+          tj.allTilesLoaded.addEventListener(function() {
+              console.log('All tiles are loaded');
+          })
+          tj.initialTilesLoaded.addEventListener(function() {
+            console.log('Initial tiles are loaded');
+          })
+          tj.readyPromise.then(function(tileset) {
+            console.log(`tileset is ${JSON.stringify(tileset.boundingSphere)}`)
+            // viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -90, 0));
+            // viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));
+          })
 
-        var tj = viewer.scene.primitives.add(new Cesium.Cesium3DTileset({
-          // name: "qxmodel",
-          url: 'http://localhost:7000/eee/tileset.json',
-          // maximumScreenSpaceError: isMobile.any() ? 8 : 1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
-          // maximumNumberOfLoadedTiles: isMobile.any() ? 10 : 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache.
-          // maximumScreenSpaceError:  1, // Temporary workaround for low memory mobile devices - Increase maximum error to 8.
-          // maximumNumberOfLoadedTiles: 1000 // Temporary workaround for low memory mobile devices - Decrease (disable) tile cache. 
-        }));
-        tj.allTilesLoaded.addEventListener(function() {
-            console.log('All tiles are loaded');
-        })
-        tj.initialTilesLoaded.addEventListener(function() {
-          console.log('Initial tiles are loaded');
-        })
-        tj.readyPromise.then(function(tileset) {
-          console.log(`tileset is ${tileset}`)
-          // viewer.camera.viewBoundingSphere(tileset.boundingSphere, new Cesium.HeadingPitchRange(0, -0.5, 0));
-        })
-
-        tj.style = new Cesium.Cesium3DTileStyle({
-          // color:"color('pink')",
-          show:true,
-          color: {
-            conditions: [
-              ['${height} >= 300', 'rgba(45, 0, 75, 0.5)'],
-              ['${height} >= 200', 'rgb(102, 71, 151)'],
-              ['${height} >= 100', 'rgb(170, 162, 204)'],
-              ['${height} >= 50', 'rgb(224, 226, 238)'],
-              ['${height} >= 25', 'rgb(252, 230, 200)'],
-              ['${height} >= 10', 'rgb(248, 176, 87)'],
-              ['${height} >= 5', 'rgb(198, 106, 11)'],
-              ['true', 'rgb(127, 59, 8)']
-            ]
-          }
-        })
-
+          tj.style = new Cesium.Cesium3DTileStyle({
+            // color:"color('pink')",
+            show:true,
+            color: {
+              conditions: [
+                ['${height} >= 300', 'rgba(45, 0, 75, 0.5)'],
+                ['${height} >= 200', 'rgb(102, 71, 151)'],
+                ['${height} >= 100', 'rgb(170, 162, 204)'],
+                ['${height} >= 50', 'rgb(224, 226, 238)'],
+                ['${height} >= 25', 'rgb(252, 230, 200)'],
+                ['${height} >= 10', 'rgb(248, 176, 87)'],
+                ['${height} >= 5', 'rgb(198, 106, 11)'],
+                ['true', 'rgb(127, 59, 8)']
+              ]
+            }
+          })
+        }
 
 
         // 如果为真，则允许用户旋转相机。如果为假，相机将锁定到当前标题。此标志仅适用于2D和3D。
-        viewer.scene.screenSpaceCameraController.enableRotate = false;
+        // viewer.scene.screenSpaceCameraController.enableRotate = false;
         // 如果为true，则允许用户平移地图。如果为假，相机将保持锁定在当前位置。此标志仅适用于2D和Columbus视图模式。
         // viewer.scene.screenSpaceCameraController.enableTranslate = false;
         // 如果为真，允许用户放大和缩小。如果为假，相机将锁定到距离椭圆体的当前距离
         // viewer.scene.screenSpaceCameraController.enableZoom = false;
         // 如果为真，则允许用户倾斜相机。如果为假，相机将锁定到当前标题。这个标志只适用于3D和哥伦布视图。
         // viewer.scene.screenSpaceCameraController.enableTilt = false;
-
-        viewer.camera.setView({
-            destination : Cesium.Cartesian3.fromDegrees(120.76, 30.75, 3000.0),
+// 
+        // viewer.camera.setView({
+            // destination : Cesium.Cartesian3.fromDegrees(120.76, 30.75, 3000.0),
             // orientation : {
             //     direction : new Cesium.Cartesian3(-0.04231243104240401, -0.20123236049443421, -0.97862924300734),
             //     up : new Cesium.Cartesian3(-0.47934589305293746, -0.8553216253114552, 0.1966022179118339)
             // }
+        // });
+
+
+        var initialPosition = Cesium.Cartesian3.fromDegrees(120.755, 30.737,800);
+        var initialOrientation = new Cesium.HeadingPitchRoll.fromDegrees(0,-25,0);
+        viewer.scene.camera.setView({
+            destination: initialPosition,
+            orientation: initialOrientation,
+            endTransform: Cesium.Matrix4.IDENTITY
         });
+
 
         var handler = new Cesium.ScreenSpaceEventHandler(viewer.canvas)
         handler.setInputAction(function(movement) {
-          debugger
+          const pickedFeature = viewer.scene.pick(movement.position);
+          console.log(pickedFeature)
             // mousePosition = movement.endPosition;
         }, Cesium.ScreenSpaceEventType.LEFT_DOWN)
+
+
+        // viewer.screenSpaceEventHandler.setInputAction(function(arg){
+        //   debugger
+        // },Cesium.ScreenSpaceEventType.MOUSE_MOVE)
       }
    }
  }
