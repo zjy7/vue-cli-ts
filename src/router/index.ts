@@ -42,13 +42,45 @@ const routes = [
     path: '/keepalive',
     name:'keepalive',
     component:()=>import('../views/keepalive/index.vue')
+  },
+  {
+    path: '/keepalive2',
+    name:'keepalive2',
+    component:()=>import('../views/keepalive2/index.vue'),
+    redirect:'/keepalive2/shouye',
+    children:[
+      {
+        name:'shouye',
+        path:'shouye',
+        component:()=>import('../views/keepalive2/shouye.vue')
+      },
+      {
+        name:'cp0',
+        path:'cp0',
+        component:()=>import('../views/keepalive2/component0.vue')
+      },
+      {
+        name:'cp1',
+        path:'cp1',
+        component:()=>import('../views/keepalive2/component1.vue')
+      },
+      {
+        name:'cp2',
+        path:'cp2',
+        component:()=>import('../views/keepalive2/component2.vue')
+      },
+    ]
   }
 ]
 
 const router = new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
+router.beforeEach((to,from,next)=>{
+  debugger
+  next()
+})
 export default router
