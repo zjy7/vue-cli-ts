@@ -38,6 +38,11 @@ const routes = [
     name: 'cesiumDemoOne',
     component: () => import(/* webpackChunkName: "about" */ '../views/CesiumDemoOne/index.vue')
   },
+  {
+    path: '/keepalive',
+    name:'keepalive',
+    component:()=>import('../views/keepalive/index.vue')
+  }
 ]
 
 const router = new VueRouter({

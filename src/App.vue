@@ -23,7 +23,8 @@ enum MenuIndex {
   talk,
   ifr,
   cesium,
-  cesiumOne
+  cesiumOne,
+  keepalive
 }
 
 @Component
@@ -34,7 +35,8 @@ export default class App extends Vue {
     {value:MenuIndex.talk, label:'Talk'},
     {value:MenuIndex.ifr, label:'open iframe'},
     {value:MenuIndex.cesium, label:'open Cesium Dome'},
-    {value:MenuIndex.cesiumOne, label:'open Cesium One'}
+    {value:MenuIndex.cesiumOne, label:'open Cesium One'},
+    {value:MenuIndex.keepalive, label:'keepalive'}
   ]
 
   clickBtn(value:MenuIndex):void{
@@ -49,7 +51,9 @@ export default class App extends Vue {
     }else if(value===MenuIndex.cesium){
       this.$router.push('/cesiumDemo')
     }else if(value===MenuIndex.cesiumOne){
-      this.$router.push('./cesiumDemoOne')
+      this.$router.push('/cesiumDemoOne')
+    }else if(value===MenuIndex.keepalive){
+      this.$router.push('/keepalive')
     }
   }
 
