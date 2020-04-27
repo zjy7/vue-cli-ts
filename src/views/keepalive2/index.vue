@@ -22,12 +22,7 @@ export default{
   },
   data(){
     return{
-      // menus:[
-      //   {label:'首页',value:'shouye'},
-      //   {label:'cp0',value:'cp0'},
-      //   {label:'cp1',value:'cp1'},
-      //   {label:'cp2',value:'cp2'},
-      // ]
+
     }
   },
   methods:{

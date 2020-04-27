@@ -10,7 +10,7 @@ export const state: Kp2State = {
     user: undefined,
     error: false,
     menus:[
-        {label:'首页',value:'/keepalive2/shouye'}
+        {label:'首页',value:'shouye'}
     ]
 };
 const namespaced: boolean = true;

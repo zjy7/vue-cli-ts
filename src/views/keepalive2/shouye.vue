@@ -28,14 +28,15 @@ export default{
   data(){
     return {
       addMenuArr:[
-        {label:'add cp0',value:'/keepalive2/cp0'},
-        {label:'add cp1',value:'/keepalive2/cp1'},
-        {label:'add cp2',value:'/keepalive2/cp2'},
+        {label:'add cp0',value:'cp0'},
+        {label:'add cp1',value:'cp1'},
+        {label:'add cp2',value:'cp2'},
       ]
     }
   },
   methods:{
     clickItem(item){
+      this.$router.push(item.value)
       this.$store.commit('keepalive2/addMenu',_.clone(item))
     }
   }
