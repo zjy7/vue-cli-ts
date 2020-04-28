@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 Vue.config.productionTip = false
 
+import Element from 'element-ui';
+Vue.use(Element, { size: 'small', zIndex: 3000 });
+
 new Vue({
   router,
   store,
