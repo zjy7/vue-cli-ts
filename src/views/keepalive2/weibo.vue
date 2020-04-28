@@ -8,9 +8,19 @@
       :loop="true" 
       v-if="list.length>0" 
       :autoplay="false" 
-      ref="carousel">
-      <el-carousel-item  v-for="(item,index) in list" :key="index">
-        <div class="box" v-for="(children,kindex) in item" :key="kindex" @click="gotoHandler(children)">
+      ref="carousel"
+      @change='changeCard'
+      >
+      <el-carousel-item  
+        v-for="(item,index) in list" 
+        :key="index"
+        >
+        <div 
+          class="box" 
+          v-for="(children,kindex) in item" 
+          :key="'box'+kindex" 
+          @click="gotoHandler(children)"
+          >
           <div class="box-left">
             <div>
               <span>【{{children.source}}】</span>
@@ -39,15 +49,16 @@ export default {
     return {
       pause: false,
       intervalId: -1,
-      list: []
+      list: [],
+      AllData:[]
     }
   },
   watch: {
   },
   methods: {
     gotoHandler (item) {
+      window.open(item.url,'_blank')
     },
-    // 获取热词列表
     async getList () {
       clearInterval(this.intervalId)
       this.list = []
@@ -58,6 +69,7 @@ export default {
             data.weiboOpinionOutDtoList.splice(10)
           }
           this.list = _.chunk(data.weiboOpinionOutDtoList, 4)
+          this.AllData = _.cloneDeep(this.list)
           this.initLoop()
         }
       },1500)
@@ -73,11 +85,20 @@ export default {
           }
         }, 2000)
       })
+    },
+    changeCard(v){
+      console.log(v)
     }
   },
   deactivated () {
+    // this.list = []
   },
   activated () {
+    // if(this.AllData.length===0){
+    //   this.getList()
+    // }else{
+    //   this.list = _.cloneDeep(this.AllData)
+    // }
   },
   beforeDestroy () {
     clearInterval(this.intervalId)
@@ -91,19 +112,17 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .addressWarnBox{
   width: 390px;
   height: 520px;
   margin: 0 auto;
-  /deep/.el-carousel--vertical{
-    overflow: hidden;
+  .el-carousel{
+    transform: translate3d(0,0,0)
   }
   /deep/.el-carousel__container{
-    height: 520px!important;
     .el-carousel__item{
       display: flex;
-      height: 520px;
       flex-direction: column;
     }
   }
@@ -139,7 +158,6 @@ export default {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      // margin-bottom:5px;
       >div{
         display: flex;
         align-items: center;
@@ -148,7 +166,6 @@ export default {
           color:#169BD5;
         }
       }
-
       span:last-child{
         font-size: 14px;
         color: #999999;
