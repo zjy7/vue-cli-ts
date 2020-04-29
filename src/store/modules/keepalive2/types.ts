@@ -10,4 +10,6 @@ export interface Kp2State {
   user?: User;
   error: boolean;
   menus: object[];
+  currentDynId: number;
+  nextDynId: number;
 }

@@ -1,5 +1,7 @@
 <template>
-  <div>222</div>
+  <div>
+    this is component2
+  </div>
 </template>
 <script>
 export default{

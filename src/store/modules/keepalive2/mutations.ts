@@ -14,9 +14,17 @@ export const mutations: MutationTree<Kp2State> = {
     addMenu(state,payload){
         state.menus.push(
             {
-                label:payload.label,
-                value:payload.value
+                label:payload.label+(payload.dynid?payload.dynid:''),
+                value:payload.value,
+                dynid:payload.dynid
             }
         )
+    },
+
+    setCurrentDynId(state, payload){
+        state.currentDynId = payload
+    },
+    setNextDynId(state, payload){
+        state.nextDynId = payload
     }
 };

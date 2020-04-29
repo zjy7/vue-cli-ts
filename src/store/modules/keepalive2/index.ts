@@ -10,8 +10,10 @@ export const state: Kp2State = {
     user: undefined,
     error: false,
     menus:[
-        {label:'首页',value:'shouye'}
-    ]
+        {label:'首页',value:'shouye',dynid:''}
+    ],
+    currentDynId:10000,
+    nextDynId:10001,
 };
 const namespaced: boolean = true;
 

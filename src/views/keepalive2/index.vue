@@ -27,7 +27,11 @@ export default{
   },
   methods:{
     clickMenu(item){
-      this.$router.push({path:'/keepalive2/'+item.value})
+      if(item.dynid){
+        this.$router.push({path:`/keepalive2/${item.value}/${item.dynid}`})
+      }else{
+        this.$router.push({path:`/keepalive2/${item.value}`})
+      }
     }
   }
 }

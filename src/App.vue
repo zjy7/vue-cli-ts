@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div id="nav">
-
       <el-button
         v-for='(item,index) in btnArr'
         :key='"btn"+index'
@@ -11,7 +10,9 @@
       </el-button>
       <div id='creditContainer' v-show='false'></div>
     </div>
-    <router-view/>
+    <div class='mainContent'>
+      <router-view/>
+    </div>
   </div>
 </template>
 <script lang="ts">
@@ -20,14 +21,7 @@ import {routes} from './router'
 import _ from 'lodash'
 // console.log(routes)
 enum MenuIndex {
-  home=0,
-  about,
-  talk,
-  ifr,
-  cesium,
-  cesiumOne,
-  keepalive,
-  keepalive2
+  a=0,b,c
 }
 
 @Component
@@ -44,17 +38,28 @@ export default class App extends Vue {
 html,body
   padding 0
   margin 0
+  width 100%
+  height 100%
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
+  height 100%
   #nav
-    margin-bottom 10px
     height 100px
     display flex
     justify-content center
     align-items center
+    flex-wrap wrap
     background-color #ccc
+    width 100%
+    overflow-x auto
+    overflow-y hidden
+    .el-button
+      margin 10px 15px
+  .mainContent
+    width 100%
+    height calc(100% - 100px)
 </style>
