@@ -14,6 +14,7 @@ export const state: Kp2State = {
     ],
     currentDynId:10000,
     nextDynId:10001,
+    dynStore:[]
 };
 const namespaced: boolean = true;
 

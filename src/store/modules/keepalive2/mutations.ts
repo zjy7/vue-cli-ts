@@ -26,5 +26,24 @@ export const mutations: MutationTree<Kp2State> = {
     },
     setNextDynId(state, payload){
         state.nextDynId = payload
+    },
+
+    setDynStore(state,payload){
+        debugger
+        if(state.dynStore.filter(i=>i.id ===payload.id).length>0){
+            for(let i=0,l=state.dynStore.length;i<length;i++){
+                if(state.dynStore[i].id === payload.id){
+                    state.dynStore[i].value = payload.value
+                    break
+                }
+            }
+        }else{
+            state.dynStore.push(
+                {
+                    id:payload.id,
+                    value:payload.value
+                }
+            )
+        }
     }
 };

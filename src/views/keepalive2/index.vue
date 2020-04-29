@@ -28,7 +28,7 @@ export default{
   methods:{
     clickMenu(item){
       if(item.dynid){
-        this.$router.push({path:`/keepalive2/${item.value}/${item.dynid}`})
+        this.$router.push({path:`/keepalive2/${item.value}/${item.dynid}`}).catch(err => {console.log('输出报错',err)})
       }else{
         this.$router.push({path:`/keepalive2/${item.value}`})
       }

@@ -41,13 +41,14 @@ export default{
       if(item.value === 'dyn'){
         let n = this.$store.state.keepalive2.nextDynId
         this.$router.push(`${item.value}/${n}`)
+        m.dynid = n
         n++
         this.$store.commit('keepalive2/setNextDynId',n)
-        m.dynid = n
       }
       else {
         this.$router.push(item.value)
       }
+      debugger
       this.$store.commit('keepalive2/addMenu',m)
     }
   }

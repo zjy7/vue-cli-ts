@@ -72,7 +72,8 @@ const routes = [
       {
         name:'dyn',
         path:'dyn/:id',
-        component:()=>import('../views/keepalive2/dyn.vue')
+        component:()=>import('../views/keepalive2/dyn.vue'),
+        props:true
       },
     ]
   },
