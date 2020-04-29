@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <div id="nav">
-      <button
-        style="margin:0 20px;"
-        v-for="(item,index) in btnArr"
-        :key='index.value'
-        @click='clickBtn(item.value)'
+
+      <el-button
+        v-for='(item,index) in btnArr'
+        :key='"btn"+index'
+        @click='clickBtn(item)'
         >
-        {{item.label}}
-      </button>
+        {{item.name}}
+      </el-button>
       <div id='creditContainer' v-show='false'></div>
     </div>
     <router-view/>
@@ -16,7 +16,9 @@
 </template>
 <script lang="ts">
 import { Component, Prop, Vue, Watch, Emit} from 'vue-property-decorator';
-
+import {routes} from './router'
+import _ from 'lodash'
+// console.log(routes)
 enum MenuIndex {
   home=0,
   about,
@@ -30,47 +32,29 @@ enum MenuIndex {
 
 @Component
 export default class App extends Vue {
-  btnArr: object[] = [
-    {value:MenuIndex.home, label:'Home'},
-    {value:MenuIndex.about, label:'About'},
-    {value:MenuIndex.talk, label:'Talk'},
-    {value:MenuIndex.ifr, label:'open iframe'},
-    {value:MenuIndex.cesium, label:'open Cesium Dome'},
-    {value:MenuIndex.cesiumOne, label:'open Cesium One'},
-    {value:MenuIndex.keepalive, label:'keepalive'},
-    {value:MenuIndex.keepalive2, label:'keepalive2'}
-  ]
+  btnArr: object[] = _.cloneDeep(routes)
 
-  clickBtn(value:MenuIndex):void{
-    if(value===MenuIndex.home){
-      this.$router.push('/')
-    }else   if(value===MenuIndex.about){
-      this.$router.push('/about')
-    }else   if(value===MenuIndex.talk){
-      this.$router.push('/talk')
-    }else if(value===MenuIndex.ifr){
-      this.$router.push('/popWindow')
-    }else if(value===MenuIndex.cesium){
-      this.$router.push('/cesiumDemo')
-    }else if(value===MenuIndex.cesiumOne){
-      this.$router.push('/cesiumDemoOne')
-    }else if(value===MenuIndex.keepalive){
-      this.$router.push('/keepalive')
-    }else if(value===MenuIndex.keepalive2){
-      this.$router.push('/keepalive2')
-    }
+  clickBtn(item:any):void{
+    this.$router.push(item.path)
   }
 
 }
 </script>
 <style lang="stylus">
+html,body
+  padding 0
+  margin 0
 #app
   font-family 'Avenir', Helvetica, Arial, sans-serif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
   text-align center
   color #2c3e50
-  margin-top 15px
   #nav
     margin-bottom 10px
+    height 100px
+    display flex
+    justify-content center
+    align-items center
+    background-color #ccc
 </style>
