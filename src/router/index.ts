@@ -70,6 +70,11 @@ const routes = [
         component:()=>import('../views/keepalive2/component2.vue')
       },
     ]
+  },
+  {
+    path:'/moment',
+    name:'moment',
+    component:()=>import('../views/moment/index.vue')
   }
 ]
 
