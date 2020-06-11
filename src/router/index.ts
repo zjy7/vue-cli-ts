@@ -81,6 +81,16 @@ const routes = [
     path:'/moment',
     name:'moment',
     component:()=>import('../views/moment/index.vue')
+  },
+  {
+    path:'/myEchart',
+    name:'myEchart',
+    component:()=>import('../views/myEchart/index.vue')
+  },
+  {
+    path:'/myEchart11',
+    name:'myEchart11',
+    component:()=>import('../views/myEchart11/index.vue')
   }
 ]
 

@@ -34,7 +34,15 @@ module.exports = {
         pathRewrite: {
           '^/eee': '/eee'
         }
-      }
+      },
+      '/asset/get/s':{
+        target:'https://gallerybox.echartsjs.com/asset/get/s',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/asset/get/s': '/'
+        }
+      },
     }
   },
   configureWebpack: {
