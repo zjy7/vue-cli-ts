@@ -7,7 +7,7 @@
 <script>
 /* eslint-disable */
 // import api from '@/api'
-import TXSQ from "@/assets/data/TXSQ.json";
+// import TXSQ from "@/assets/data/TXSQ.json";
 import ROOT_JIAXING from "@/assets/data/root-jiaxing.json";
 
 import echarts from 'echarts'
@@ -91,7 +91,7 @@ export default {
           宜春市: yichun,
           抚州市: fuzhou,
           上饶市: shangrao,
-          嘉兴市: TXSQ
+          嘉兴市: 'root-jiaxing'
         }
         var geoCoordMap = {
           南昌: [115.89, 28.48],
@@ -515,22 +515,21 @@ export default {
           }
         })
 
-        chart.setMap = function (mapName) {
-          debugger
-          var _self = this
-          if (mapName.indexOf('市') < 0) mapName = mapName + '市'
-          var citySource = cityMap[mapName]
-          if (citySource) {
-            var url = './map/' + citySource + '.json'
-            $.get(url, function (response) {
-              // console.log(response);
-              curGeoJson = response
-              echarts.registerMap(mapName, response)
-              handleEvents.resetOption(_self, option, mapName)
-            })
-          }
-        // handleEvents.resetOption(this, option, mapName);
-        }
+        // chart.setMap = function (mapName) {
+        //   debugger
+        //   var _self = this
+        //   if (mapName.indexOf('市') < 0) mapName = mapName + '市'
+        //   var citySource = cityMap[mapName]
+        //   if (citySource) {
+        //     var url = './map/' + citySource + '.json'
+        //     $.get(url, function (response) {
+        //       // console.log(response);
+        //       curGeoJson = response
+        //       echarts.registerMap(mapName, response)
+        //       handleEvents.resetOption(_self, option, mapName)
+        //     })
+        //   }
+        // }
 
         return chart
       }
