@@ -33,7 +33,6 @@ export default {
       var jian = '/asset/get/s/data-1518338772507-BJnAMKTIz.json'
       var ganzhou = '/asset/get/s/data-1518338763250-S17RfKpLM.json'
       var fuzhou = '/asset/get/s/data-1518338684239-S1EFGtp8f.json'
-debugger
 console.log(11)
       echarts.extendsMap = function (id, opt) {
         // 实例
@@ -483,10 +482,8 @@ console.log(11)
 
         return chart
       }
-      debugger
       console.log(22)
       $.getJSON(jiangxi, function (geoJson) {
-          debugger
 
         echarts.registerMap('江西', geoJson)
         self.myChart = echarts.extendsMap('tttt', {

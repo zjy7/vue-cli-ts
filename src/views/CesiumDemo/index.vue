@@ -143,7 +143,6 @@ import $ from 'jquery'
 
 
         // viewer.screenSpaceEventHandler.setInputAction(function(arg){
-        //   debugger
         // },Cesium.ScreenSpaceEventType.MOUSE_MOVE)
       }
    }

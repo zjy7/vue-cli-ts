@@ -48,7 +48,6 @@ export default{
       else {
         this.$router.push(item.value)
       }
-      debugger
       this.$store.commit('keepalive2/addMenu',m)
     }
   }

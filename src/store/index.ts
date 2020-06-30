@@ -7,7 +7,13 @@ Vue.use(Vuex)
 
 const store: StoreOptions<RootState> = {
   state:{
-    version:'1.2.3'
+    version:'1.2.3',
+    isShowHeader:true
+  },
+  mutations:{
+    setIsShowHeader(state,payload:boolean){
+      state.isShowHeader = payload
+    }
   },
   modules:{
     profile,

@@ -31,7 +31,6 @@ export default{
   },
   methods:{
     clickMenu(item){
-      debugger
       this.currentComponent = item.value
     }
   }

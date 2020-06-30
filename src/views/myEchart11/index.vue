@@ -491,7 +491,6 @@ export default {
         chart.setOption(option)
         // 添加事件
         chart.on('click', function (params) {
-          debugger
           params.name='嘉兴市'
             var _self = this
           if (opt.goDown && params.name !== name[idx]) {
@@ -516,7 +515,6 @@ export default {
         })
 
         // chart.setMap = function (mapName) {
-        //   debugger
         //   var _self = this
         //   if (mapName.indexOf('市') < 0) mapName = mapName + '市'
         //   var citySource = cityMap[mapName]

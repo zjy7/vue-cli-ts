@@ -96,6 +96,11 @@ const routes = [
     path:'/myEchartPie',
     name:'myEchartPie',
     component:()=>import('../views/myEchartPie/index.vue')
+  },
+  {
+    path:'/myClock',
+    name:'myClock',
+    component:()=>import('../views/myClock/index.vue')
   }
 ]
 
@@ -106,7 +111,6 @@ const router = new VueRouter({
 })
 
 router.beforeEach((to,from,next)=>{
-  // debugger
   next()
 })
 export {routes}
