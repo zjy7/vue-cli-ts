@@ -91,6 +91,11 @@ const routes = [
     path:'/myEchart11',
     name:'myEchart11',
     component:()=>import('../views/myEchart11/index.vue')
+  },
+  {
+    path:'/myEchartPie',
+    name:'myEchartPie',
+    component:()=>import('../views/myEchartPie/index.vue')
   }
 ]
 
