@@ -101,6 +101,11 @@ const routes = [
     path:'/myClock',
     name:'myClock',
     component:()=>import('../views/myClock/index.vue')
+  },
+  {
+    path:'/myEjs',
+    name:'myEjs',
+    component:()=>import('../views/myEjs/index.vue')
   }
 ]
 

@@ -47,7 +47,7 @@ export default {
       // self.arr.splice(9,1,moment([2020, 1, 22]).diff(moment([2020,5,2]), 'days',true))
       // self.arr.splice(10,1,moment([2020, 1, 22]).diff(moment([2020,5,2]), 'days',false))
       self.t0 = moment().format('MM月DD日')
-      self.t1 = moment().format('h:mm:ss')
+      self.t1 = moment().format('HH:mm:ss')
     },1000)
   },
   beforeDestroy(){
