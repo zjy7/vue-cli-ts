@@ -66,10 +66,13 @@ export default {
   >div
     height 50%
     width 100%
-    font-size 250px
+    font-size 10rem /* 1500/75 */
+    // font-size 36vh
     display flex
     align-items center
     justify-content center
     font-weight 700
     font-family 'Microsoft YaHei'
 </style>
+
+

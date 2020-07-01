@@ -5,6 +5,8 @@ import store from './store'
 Vue.config.productionTip = false
 import 'element-ui/lib/theme-chalk/index.css'
 
+import './styles/main.styl'
+
 import Element from 'element-ui';
 Vue.use(Element, { size: 'small', zIndex: 3000 });
 
