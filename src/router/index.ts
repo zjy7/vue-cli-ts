@@ -111,6 +111,11 @@ const routes = [
     path:'/myFont',
     name:'myFont',
     component:()=>import('../views/myFont/index.vue')
+  },
+  {
+    path:'/myJquery',
+    name:'myJquery',
+    component:()=>import('../views/myJquery/index.vue')
   }
 ]
 
