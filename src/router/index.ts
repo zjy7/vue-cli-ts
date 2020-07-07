@@ -106,6 +106,11 @@ const routes = [
     path:'/myEjs',
     name:'myEjs',
     component:()=>import('../views/myEjs/index.vue')
+  },
+  {
+    path:'/myFont',
+    name:'myFont',
+    component:()=>import('../views/myFont/index.vue')
   }
 ]
 
