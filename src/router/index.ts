@@ -116,7 +116,12 @@ const routes = [
     path:'/myJquery',
     name:'myJquery',
     component:()=>import('../views/myJquery/index.vue')
-  }
+  },
+  {
+    path:'/myLeaflet',
+    name:'myLeaflet',
+    component:()=>import('../views/myLeaflet/index.vue')
+  },
 ]
 
 const router = new VueRouter({
