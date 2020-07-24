@@ -122,6 +122,11 @@ const routes = [
     name:'myLeaflet',
     component:()=>import('../views/myLeaflet/index.vue')
   },
+  {
+    path:'/myTable',
+    name:'myTable',
+    component:()=>import('../views/myTable/index.vue')
+  },
 ]
 
 const router = new VueRouter({
