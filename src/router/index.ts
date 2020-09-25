@@ -127,6 +127,11 @@ const routes = [
     name:'myTable',
     component:()=>import('../views/myTable/index.vue')
   },
+  {
+    path:'/canvas',
+    name:'canvas',
+    component:()=>import('../views/canvas/index.vue')
+  },
 ]
 
 const router = new VueRouter({
