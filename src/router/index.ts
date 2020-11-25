@@ -132,6 +132,11 @@ const routes = [
     name:'canvas',
     component:()=>import('../views/canvas/index.vue')
   },
+  {
+    path:'/throttle',
+    name:'throttle',
+    component:()=>import('../views/throttle/index.vue')
+  },
 ]
 
 const router = new VueRouter({
