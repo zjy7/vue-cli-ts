@@ -5,7 +5,8 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "dev": "npm run serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "postinstall": "husky install"
   },
   "dependencies": {
     "@types/lodash": "^4.14.150",
@@ -41,6 +42,8 @@
     "@vue/cli-plugin-vuex": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "copy-webpack-plugin": "^5.1.1",
+    "husky": "^5.0.6",
+    "pinst": "^2.1.1",
     "stylus": "^0.54.7",
     "stylus-loader": "^3.0.2",
     "typescript": "~3.5.3",
